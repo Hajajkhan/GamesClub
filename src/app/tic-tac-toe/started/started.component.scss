@@ -28,3 +28,12 @@ q{
     padding: 20px;
     text-align: justify;
 }
+.input{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 5px;
+}
+tui-input{
+    width: 200px;
+}    

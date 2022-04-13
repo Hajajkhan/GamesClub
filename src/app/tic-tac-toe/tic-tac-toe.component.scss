@@ -2,20 +2,52 @@
     display: flex;
     flex-direction: column;
 }
-.subDiv{
+.subMain{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 60vh;
 }
-
+h1{
+    margin-bottom: 60px;
+    margin-left: 150px;
+}
 button{
     width: 100px;
+}
+.turn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 50px;
 }
 .data{
     width: 400px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-left: 80px;
+    margin-top: 30px;
+}
+.input{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 5px;
+}
+tui-input{
+    width: 200px;
+}    
+.result{
+    margin-top: 20px;
+    margin-right: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.btn{
+    margin-left: 150px;
+    margin-top: 10px;
 }

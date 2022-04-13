@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FormsModule } from "@angular/forms";
 
 import { TaigaModule } from "./taiga/taiga.module";
 import { StartedComponent } from "./tic-tac-toe/started/started.component";
@@ -19,7 +20,8 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { wordReducer } from "./hangman/Hangman Store/hangman.reducer";
 import { WordsEffects } from "./hangman/Hangman Store/hangman.effects";
-
+import { ReactiveFormsModule } from "@angular/forms";
+import { TuiInputModule } from "@taiga-ui/kit";
 
 @NgModule({
   declarations: [
@@ -33,8 +35,8 @@ import { WordsEffects } from "./hangman/Hangman Store/hangman.effects";
   ],
   imports: [
     BrowserModule,HttpClientModule,
-    AppRoutingModule,
-    TaigaModule,
+    AppRoutingModule,ReactiveFormsModule,FormsModule,
+    TaigaModule,TuiInputModule,
     BrowserAnimationsModule,
     TuiButtonModule,
     StoreModule.forRoot({ words: wordReducer}, {}),

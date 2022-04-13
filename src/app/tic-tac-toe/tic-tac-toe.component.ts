@@ -21,7 +21,14 @@ export class TicTacToeComponent implements OnInit {
   
    initialTurn=0;
    hideX:boolean=false;
+   hideXturn:boolean=true;
+   hideOturn:boolean=false;
    hideO:boolean=false;
+   firstPlayer:string="First Player";
+   secondPlayer:string="Second Player";
+   hideDiv:boolean=false;
+   inputDisabled:boolean=false;
+   resetButton:boolean=false;
 
   constructor() {}
 
@@ -29,12 +36,17 @@ export class TicTacToeComponent implements OnInit {
   }
 
  setMove(index:any): void {
-    this.turns[index].active=true;
-    this.initialTurn++;
+      this.initialTurn++;
+      this.turns[index].active=true;
     if(this.initialTurn%2){
       this.turns[index].text="X";
+      this.hideXturn=false;
+      this.hideOturn=true;
     }else{
       this.turns[index].text="O";
+      this.hideXturn=true;
+      this.hideOturn=false;
+
     }if(this.turns[0].text=="X"&&this.turns[1].text=="X"&&this.turns[2].text=="X"||
       this.turns[3].text=="X"&&this.turns[4].text=="X"&&this.turns[5].text=="X"||
       this.turns[6].text=="X"&&this.turns[7].text=="X"&&this.turns[8].text=="X"||
@@ -44,6 +56,7 @@ export class TicTacToeComponent implements OnInit {
       this.turns[0].text=="X"&&this.turns[4].text=="X"&&this.turns[8].text=="X"||
       this.turns[2].text=="X"&&this.turns[4].text=="X"&&this.turns[6].text=="X"){
       this.hideX=true;
+      this.resetButton=true;
     }else 
     if(this.turns[0].text=="O"&&this.turns[1].text=="O"&&this.turns[2].text=="O"||
       this.turns[3].text=="O"&&this.turns[4].text=="O"&&this.turns[5].text=="O"||
@@ -54,6 +67,24 @@ export class TicTacToeComponent implements OnInit {
       this.turns[0].text=="O"&&this.turns[4].text=="O"&&this.turns[8].text=="O"||
       this.turns[2].text=="O"&&this.turns[4].text=="O"&&this.turns[6].text=="O"){
       this.hideO=true;
+      this.resetButton=true;
     }
+  }
+
+  startGame(){
+    this.hideDiv=true;
+    this.inputDisabled=true;
+    console.log(this.firstPlayer);
+    console.log(this.secondPlayer)
+  }
+  restart(){
+    this.hideDiv=false;
+    this.inputDisabled=false;
+    this.resetButton=false;
+    this.hideX=false;
+    this.hideO=false;
+    this.turns.forEach(data=>{
+      data.text="";
+    })
   }
 }
