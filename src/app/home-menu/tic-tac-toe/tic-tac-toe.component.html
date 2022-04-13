@@ -43,7 +43,7 @@
                         [disabled]="(turn.active)"
                         tuiButton
                         type="button"
-                        appearance="accent"
+                        appearance={{color}}
                         class="tui-space_right-3 tui-space_bottom-3"
                         >
                         {{turn.text}}
@@ -68,4 +68,16 @@
             Restart
         </button>
     </div>
+</div>
+
+<div class="gobackHome">
+    <button
+        tuiButton
+        type="button"
+        appearance="outline"
+        class="tui-space_right-3 tui-space_bottom-3"
+        routerLink=""
+    >
+    Go Back to Menu
+    </button>
 </div>

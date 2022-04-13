@@ -29,6 +29,7 @@ export class TicTacToeComponent implements OnInit {
    hideDiv:boolean=false;
    inputDisabled:boolean=false;
    resetButton:boolean=false;
+   color:string= "accent"
 
   constructor() {}
 

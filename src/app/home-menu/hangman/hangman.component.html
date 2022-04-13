@@ -1,0 +1,16 @@
+<h1>HangMan</h1>
+<div *ngFor="let alpha of alphabets, let i = index">
+    <button (click)="onclick(alpha)">{{alpha}}</button>
+</div>
+
+<div class="gobackHome">
+    <button
+        tuiButton
+        type="button"
+        appearance="outline"
+        class="tui-space_right-3 tui-space_bottom-3"
+        routerLink=""
+    >
+        Go Back to Menu
+    </button>
+</div>
