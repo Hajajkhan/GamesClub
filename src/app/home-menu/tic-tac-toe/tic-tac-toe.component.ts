@@ -8,15 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class TicTacToeComponent implements OnInit {
 
   turns:any[]=[
-    {text:"", active:false},
-    {text:"", active:false},
-    {text:"", active:false},
-    {text:"", active:false},
-    {text:"", active:false},
-    {text:"", active:false},
-    {text:"", active:false},
-    {text:"", active:false},
-    {text:"", active:false},
+    {text:""},
+    {text:""},
+    {text:""},
+    {text:""},
+    {text:""},
+    {text:""},
+    {text:""},
+    {text:""},
+    {text:""},
   ];
   
    initialTurn=0;
@@ -29,7 +29,7 @@ export class TicTacToeComponent implements OnInit {
    hideDiv:boolean=false;
    inputDisabled:boolean=false;
    resetButton:boolean=false;
-   color:string= "accent"
+   hideTie:boolean=false;
 
   constructor() {}
 
@@ -38,12 +38,12 @@ export class TicTacToeComponent implements OnInit {
 
  setMove(index:any): void {
       this.initialTurn++;
-      this.turns[index].active=true;
-    if(this.initialTurn%2){
+      this.initialTurn<=9;
+    if(this.initialTurn%2==1){
       this.turns[index].text="X";
       this.hideXturn=false;
       this.hideOturn=true;
-    }else{
+    }else if(this.initialTurn%2==0){
       this.turns[index].text="O";
       this.hideXturn=true;
       this.hideOturn=false;
@@ -58,7 +58,7 @@ export class TicTacToeComponent implements OnInit {
       this.turns[2].text=="X"&&this.turns[4].text=="X"&&this.turns[6].text=="X"){
       this.hideX=true;
       this.resetButton=true;
-    }else 
+    }else
     if(this.turns[0].text=="O"&&this.turns[1].text=="O"&&this.turns[2].text=="O"||
       this.turns[3].text=="O"&&this.turns[4].text=="O"&&this.turns[5].text=="O"||
       this.turns[6].text=="O"&&this.turns[7].text=="O"&&this.turns[8].text=="O"||
@@ -84,6 +84,7 @@ export class TicTacToeComponent implements OnInit {
     this.resetButton=false;
     this.hideX=false;
     this.hideO=false;
+    this.initialTurn=0;
     this.turns.forEach(data=>{
       data.text="";
     })

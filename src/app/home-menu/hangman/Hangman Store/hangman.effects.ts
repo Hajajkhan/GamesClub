@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
-import { catchError, EMPTY, map, mergeMap, of, tap } from 'rxjs';
+import { catchError, map, mergeMap, of } from 'rxjs';
 import { loadWord, loadWordError, loadWordSucceed } from './hangman.actions';
 import { HangmanService } from '../hangman.service';
 

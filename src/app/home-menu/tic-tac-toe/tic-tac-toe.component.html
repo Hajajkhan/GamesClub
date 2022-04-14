@@ -1,83 +1,84 @@
 <div class="main">
-    <div class="subMain">
-        <div class="subDiv">
-            <div>
-                <h1>Tic Tac Toe</h1>
-            </div>
-            <div class="input">
-                <tui-input
-                    name="firstPlayer"
-                    tuiHintContent="Type 5 letters or more"
-                    class="b-form"
-                    [(ngModel)]="firstPlayer"
-                    [disabled]="inputDisabled"
-                >
-                    First Player Name
-                </tui-input>
-                <tui-input
-                    tuiHintContent="Type 5 letters or more"
-                    class="b-form"
-                    [(ngModel)]="secondPlayer"
-                    [disabled]="inputDisabled"
-                >
-                    Second Player Name
-                </tui-input>
-                <button
-                        tuiButton
-                        type="button"
-                        appearance="accent"
-                        class="tui-space_right-3 tui-space_bottom-3"
-                        (click)="startGame()"
-                        [disabled]="inputDisabled"
-                        >
-                        Start
-                    </button>
-            </div>
-            <div class="turn" *ngIf="hideDiv">
-                <p *ngIf="hideXturn">{{firstPlayer}}'s Turn</p>
-                <p  *ngIf="hideOturn">{{secondPlayer}}'s Turn</p>
-            </div>
-            <div class="data" *ngIf="hideDiv">
-                <div *ngFor="let turn of turns, let i = index" (click)="setMove(i)">
-                    <button
-                        [disabled]="(turn.active)"
-                        tuiButton
-                        type="button"
-                        appearance={{color}}
-                        class="tui-space_right-3 tui-space_bottom-3"
-                        >
-                        {{turn.text}}
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="result">
-    <h1 *ngIf="hideX">{{firstPlayer}} is winner!!!</h1>
-    <h1 *ngIf="hideO">{{secondPlayer}} is winner!!! </h1>
-    <div class="btn">
+  <div class="subMain">
+    <div class="subDiv">
+      <div>
+        <h1>Tic Tac Toe</h1>
+      </div>
+      <div class="input">
+        <tui-input
+          name="firstPlayer"
+          tuiHintContent="Type 5 letters or more"
+          class="b-form"
+          [(ngModel)]="firstPlayer"
+          [disabled]="inputDisabled"
+        >
+          First Player Name
+        </tui-input>
+        <tui-input
+          tuiHintContent="Type 5 letters or more"
+          class="b-form"
+          [(ngModel)]="secondPlayer"
+          [disabled]="inputDisabled"
+        >
+          Second Player Name
+        </tui-input>
         <button
-         *ngIf="resetButton"
+          tuiButton
+          type="button"
+          appearance="accent"
+          class="tui-space_right-3 tui-space_bottom-3"
+          (click)="startGame()"
+          [disabled]="inputDisabled"
+        >
+          Start
+        </button>
+      </div>
+      <div class="turn" *ngIf="hideDiv">
+        <p *ngIf="hideXturn">{{ firstPlayer }}'s Turn</p>
+        <p *ngIf="hideOturn">{{ secondPlayer }}'s Turn</p>
+      </div>
+      <div class="data" *ngIf="hideDiv">
+        <div *ngFor="let turn of turns; let i = index" (click)="setMove(i)">
+          <button
             tuiButton
             type="button"
-            appearance="accent"
+            appearance="outline"
             class="tui-space_right-3 tui-space_bottom-3"
-            (click)="restart()"
-            >
-            Restart
-        </button>
+            [disabled]="turn.text"
+          >
+          {{turn.text}}
+          </button>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
+<div class="result">
+  <h1 *ngIf="hideX">{{ firstPlayer }} is winner!!!</h1>
+  <h1 *ngIf="hideO">{{ secondPlayer }} is winner!!!</h1>
+  <h1 *ngIf="hideTie">Match Tie!!!</h1>
+  <div class="btn">
+    <button
+      *ngIf="resetButton"
+      tuiButton
+      type="button"
+      appearance="accent"
+      class="tui-space_right-3 tui-space_bottom-3"
+      (click)="restart()"
+    >
+      Restart
+    </button>
+  </div>
 </div>
 
 <div class="gobackHome">
-    <button
-        tuiButton
-        type="button"
-        appearance="outline"
-        class="tui-space_right-3 tui-space_bottom-3"
-        routerLink=""
-    >
+  <button
+    tuiButton
+    type="button"
+    appearance="outline"
+    class="tui-space_right-3 tui-space_bottom-3"
+    routerLink=""
+  >
     Go Back to Menu
-    </button>
+  </button>
 </div>

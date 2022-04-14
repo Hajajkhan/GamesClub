@@ -1,21 +1,17 @@
 import { createReducer, on } from '@ngrx/store';
-import {
-    loadWordSucceed
-} from './hangman.actions';
+import {loadWordSucceed} from './hangman.actions';
 
-// interface Applicationstate {
-//   words: any[];
-// }
-const initialstate = {
-  words: [],
-};
+let initialstate={}
 
 const _wordReducer = createReducer(
   initialstate,
   on(loadWordSucceed, (state, { word }) => {
-    
     console.log("##", word)
-    return { ...state, word: word };
+    let randomWord;
+    word.map((data:any)=>{
+      randomWord=data.word
+    })
+    return { ...state, word:randomWord};
   }),
 );
 

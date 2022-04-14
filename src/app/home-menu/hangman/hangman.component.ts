@@ -10,25 +10,35 @@ import { HangmanService } from './hangman.service';
   styleUrls: ['./hangman.component.scss']
 })
 export class HangmanComponent implements OnInit {
-  alphabets:any[]=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r",
+  alphabets:any[]=
+  ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r",
   "s","t","u","v","w","x","y","z"]
-  array:{}={};
-  word$:Observable<any>=this.store.select(state=>{
-    console.log(state);
+  array:any[]=[];
+  word="";
+  lowerCase="";
+
+  word$:Observable<any>=this.store.select((state:any)=>{
+    return state.words.word;
   })
 
-
-
-  constructor(private store: Store, private service:HangmanService) { }
+  constructor(private store: Store, private service:HangmanService) { 
+  }
 
   ngOnInit(): void {
     this.store.dispatch(loadWord());
-    // this.alphabets.map(data=>{
-    //   console.log(data)
-    // })
+    this.word$.subscribe(res=>{
+      this.word=res;
+    });
   }
-  onclick(index:any){
-    return index
+  
+  startGame(){
+    this.lowerCase= this.word.toLocaleLowerCase();
+    this.array=this.lowerCase.split("");
+  }
+
+  matchingWords(data:any){
+    let index =  this.lowerCase.search(data);
+    console.log(index)
   }
 
 }
