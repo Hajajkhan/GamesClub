@@ -48,7 +48,8 @@ export class TicTacToeComponent implements OnInit {
       this.hideXturn=true;
       this.hideOturn=false;
 
-    }if(this.turns[0].text=="X"&&this.turns[1].text=="X"&&this.turns[2].text=="X"||
+    }if(
+      this.turns[0].text=="X"&&this.turns[1].text=="X"&&this.turns[2].text=="X"||
       this.turns[3].text=="X"&&this.turns[4].text=="X"&&this.turns[5].text=="X"||
       this.turns[6].text=="X"&&this.turns[7].text=="X"&&this.turns[8].text=="X"||
       this.turns[0].text=="X"&&this.turns[3].text=="X"&&this.turns[6].text=="X"||
@@ -59,7 +60,8 @@ export class TicTacToeComponent implements OnInit {
       this.hideX=true;
       this.resetButton=true;
     }else
-    if(this.turns[0].text=="O"&&this.turns[1].text=="O"&&this.turns[2].text=="O"||
+    if(
+      this.turns[0].text=="O"&&this.turns[1].text=="O"&&this.turns[2].text=="O"||
       this.turns[3].text=="O"&&this.turns[4].text=="O"&&this.turns[5].text=="O"||
       this.turns[6].text=="O"&&this.turns[7].text=="O"&&this.turns[8].text=="O"||
       this.turns[0].text=="O"&&this.turns[3].text=="O"&&this.turns[6].text=="O"||

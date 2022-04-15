@@ -7,11 +7,14 @@ const _wordReducer = createReducer(
   initialstate,
   on(loadWordSucceed, (state, { word }) => {
     console.log("##", word)
-    let randomWord;
+    let randomWordObject;
     word.map((data:any)=>{
-      randomWord=data.word
+      randomWordObject={
+        word:data.word,
+        define:data.definition
+      }
     })
-    return { ...state, word:randomWord};
+    return { ...state, word:randomWordObject};
   }),
 );
 

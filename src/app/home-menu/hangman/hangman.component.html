@@ -3,62 +3,64 @@
         <div class="heading">
             <h1>Hangman</h1>
             <div>
-                <button (click)="startGame()">
+                <button
+                    (click)="startGame()"
+                    tuiButton
+                    type="button"
+                    appearance="accent"
+                    class="tui-space_right-3 tui-space_bottom-3"
+                    [disabled]="btnDisabled"
+                >
                     Start
                 </button>
             </div>
         </div>
-        <div class="body">
+        <div class="body" *ngIf="hideBody">
             <div class="alphaDiv">
-                <div *ngFor="let alpha of array" >
+                <div *ngFor="let alpha of guesses" >
                     <div class="blocks">
+                        {{alpha.guess}}
                     </div>
                 </div>
             </div>
+            <div *ngIf="mistakeRemainingHide">
+                <h1>{{mistakeRemaining}} Remaining Letters</h1>
+            </div>
             <div  class="keyboard" >
                 <div *ngFor="let alpha of alphabets, let i = index">
-                    <!-- <button
-                    tuiButton
-                    type="button"
-                    appearance="outline"
-                    class="tui-space_right-3 tui-space_bottom-3"
-                    (click)="matchingWords(alpha)"
-                  >
-                    {{alpha}}
-                  </button> -->
-                    <button (click)="matchingWords(alpha)">
+                    <button 
+                        tuiButton 
+                        (click)="matchingWords(alpha)"
+                        >
                         {{alpha}}
+                    </button>
+                </div>
+            </div>
+            <div *ngIf="hintHide">
+                <h1>Hint: {{hint}}</h1>
+            </div>
+            <div class="btn">
+                <div class="innerBtn">
+                    <button
+                        (click)="restart()"
+                        tuiButton
+                        type="button"
+                        appearance="secondary"
+                        class="tui-space_right-3 tui-space_bottom-3"
+                    >
+                        Restart
+                    </button>
+                    <button
+                        (click)="getHint()"
+                        tuiButton
+                        type="button"
+                        appearance="secondary"
+                        class="tui-space_right-3 tui-space_bottom-3"
+                    >
+                        Hint
                     </button>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="gobackHome">
-    <button
-      tuiButton
-      type="button"
-      appearance="outline"
-      class="tui-space_right-3 tui-space_bottom-3"
-      routerLink=""
-    >
-      Go Back to Menu
-    </button>
-</div>
-
-
-
-<!-- <div class="main">
-    <div class="subDiv">
-        <div class="data">
-            <div  class="keyboard" >
-                <div *ngFor="let alpha of alphabets, let i = index">
-                    <button (click)="onclick(alpha)">
-                        {{alpha}}
-                    </button>
-                </div>
-            </div>
-            
-        </div>
-    </div>
-</div> -->

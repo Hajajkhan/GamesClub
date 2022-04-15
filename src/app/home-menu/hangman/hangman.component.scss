@@ -20,7 +20,8 @@
     flex-direction: column;
     justify-content:center ;
     align-items:center ;
-    height: 100vh;
+    height: 80vh;
+   
 
 }
 .data{
@@ -28,15 +29,13 @@
     flex-direction: row;
 }
 .keyboard{
-    gap: 5px;
+    gap: 3px;
     display: flex;
     flex-direction:row;
     flex-wrap: wrap;
-    padding: 5px;
-    width: 246px;
-    border: 2px solid black;
+    padding: 3px;
+    width: 50%;
     border-radius: 5px;
-    background-color: antiquewhite;
 }
 .alphaDiv{
     gap: 5px;
@@ -47,8 +46,22 @@
 }
 .blocks{
     border: 2px solid black;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+    font-size:x-large;
     width: 30px;
     height: 30px;
-    align-items: center;
     margin-bottom: 30px;
+}
+.btn{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+.innerBtn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
 }
