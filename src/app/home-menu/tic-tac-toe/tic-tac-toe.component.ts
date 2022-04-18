@@ -59,6 +59,7 @@ export class TicTacToeComponent implements OnInit {
       this.turns[2].text=="X"&&this.turns[4].text=="X"&&this.turns[6].text=="X"){
       this.hideX=true;
       this.resetButton=true;
+      
     }else
     if(
       this.turns[0].text=="O"&&this.turns[1].text=="O"&&this.turns[2].text=="O"||
@@ -71,7 +72,9 @@ export class TicTacToeComponent implements OnInit {
       this.turns[2].text=="O"&&this.turns[4].text=="O"&&this.turns[6].text=="O"){
       this.hideO=true;
       this.resetButton=true;
+      this.turns[index].text="";
     }
+    
   }
 
   startGame(){
@@ -80,6 +83,7 @@ export class TicTacToeComponent implements OnInit {
     console.log(this.firstPlayer);
     console.log(this.secondPlayer)
   }
+
   restart(){
     this.hideDiv=false;
     this.inputDisabled=false;

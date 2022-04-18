@@ -30,37 +30,53 @@
                 <div *ngFor="let alpha of alphabets, let i = index">
                     <button 
                         tuiButton 
-                        (click)="matchingWords(alpha)"
+                        [disabled]="alpha.disabled"
+                        (click)="matchingWords(alpha.alpha, i)"
                         >
-                        {{alpha}}
+                        {{alpha.alpha}}
                     </button>
                 </div>
             </div>
             <div *ngIf="hintHide">
                 <h1>Hint: {{hint}}</h1>
             </div>
-            <div class="btn">
-                <div class="innerBtn">
-                    <button
-                        (click)="restart()"
-                        tuiButton
-                        type="button"
-                        appearance="secondary"
-                        class="tui-space_right-3 tui-space_bottom-3"
-                    >
-                        Restart
-                    </button>
-                    <button
-                        (click)="getHint()"
-                        tuiButton
-                        type="button"
-                        appearance="secondary"
-                        class="tui-space_right-3 tui-space_bottom-3"
-                    >
-                        Hint
-                    </button>
-                </div>
+        </div>
+        <div class="btn">
+            <div *ngIf="hideReset" class="innerBtn">
+                <button
+                    (click)="restart()"
+                    tuiButton
+                    type="button"
+                    appearance="secondary"
+                    class="tui-space_right-3 tui-space_bottom-3"
+                >
+                    Restart
+                </button>
+                <button
+                    (click)="getHint()"
+                    tuiButton
+                    type="button"
+                    appearance="secondary"
+                    class="tui-space_right-3 tui-space_bottom-3"
+                >
+                    Hint
+                </button>
             </div>
+        </div>
+        <div>
+            <h1 *ngIf="hideLost">You Lost, Try Again!!</h1>
+            <h1 *ngIf="trueAnswer">You Won!!</h1>
         </div>
     </div>
 </div>
+<div class="gobackHome">
+    <button
+      tuiButton
+      type="button"
+      appearance="outline"
+      class="tui-space_right-3 tui-space_bottom-3"
+      routerLink=""
+    >
+      Go Back to Menu
+    </button>
+  </div>
