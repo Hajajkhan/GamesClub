@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { loadWord } from './Hangman Store/hangman.actions';
 import { HangmanService } from './hangman.service';
-import {TuiAppearance, tuiButtonOptionsProvider} from '@taiga-ui/core';
+import { tuiButtonOptionsProvider} from '@taiga-ui/core';
 import { alphaArray } from './alpha';
 
 
@@ -16,16 +16,10 @@ import { alphaArray } from './alpha';
     tuiButtonOptionsProvider({
         shape: 'rounded',
         appearance: "primary",
-        //  TuiAppearance.Outline,
-        // size: '',
     }),
   ],
 })
 export class HangmanComponent implements OnInit {
-  
-  // alphabets:any[]=
-  // ["a","b","c","d","e","f","g","h","i","j","k","l","m",
-  // "n","o","p","q","r","s","t","u","v","w","x","y","z"]
 
   alphabets = alphaArray;
 

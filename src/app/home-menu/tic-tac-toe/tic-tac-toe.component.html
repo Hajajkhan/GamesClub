@@ -38,15 +38,16 @@
         <p *ngIf="hideOturn">{{ secondPlayer }}'s Turn</p>
       </div>
       <div class="data" *ngIf="hideDiv">
-        <div *ngFor="let turn of turns; let i = index" (click)="setMove(i)">
+        <div *ngFor="let turn of turns; let i = index">
           <button
             tuiButton
             type="button"
-            appearance="outline"
+            appearance="primary"
             class="tui-space_right-3 tui-space_bottom-3"
             [disabled]="turn.disabled"
+            (click)="setMove(i)"
           >
-          {{turn.text}}
+            {{ turn.text }}
           </button>
         </div>
       </div>

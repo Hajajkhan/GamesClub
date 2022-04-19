@@ -40,29 +40,30 @@
             <div *ngIf="hintHide">
                 <h1>Hint: {{hint}}</h1>
             </div>
-        </div>
-        <div class="btn">
-            <div class="innerBtn"  *ngIf="hideReset">
-                <button
-                    (click)="restart()"
-                    tuiButton
-                    type="button"
-                    appearance="secondary"
-                    class="tui-space_right-3 tui-space_bottom-3"
-                >
-                    Restart
-                </button>
-                <button 
-                    (click)="getHint()"
-                    tuiButton
-                    type="button"
-                    appearance="secondary"
-                    class="tui-space_right-3 tui-space_bottom-3"
-                >
-                    Hint
-                </button>
+            <div class="btn">
+                <div class="innerBtn"  *ngIf="hideReset">
+                    <button
+                        (click)="restart()"
+                        tuiButton
+                        type="button"
+                        appearance="secondary"
+                        class="tui-space_right-3 tui-space_bottom-3"
+                    >
+                        Restart
+                    </button>
+                    <button 
+                        (click)="getHint()"
+                        tuiButton
+                        type="button"
+                        appearance="secondary"
+                        class="tui-space_right-3 tui-space_bottom-3"
+                    >
+                        Hint
+                    </button>
+                </div>
             </div>
         </div>
+       
         <div>
             <div *ngIf="hideLost">
                 <h1>oopss!!! <br><br> You Lost, Try Again!!</h1>

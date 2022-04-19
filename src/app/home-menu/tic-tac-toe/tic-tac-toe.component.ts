@@ -6,45 +6,43 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tic-tac-toe.component.scss'],
 })
 export class TicTacToeComponent implements OnInit {
-  turns: any[] = [
-    // { text: '', disabled:false},
-    // { text: '' },
-    // { text: '' },
-    // { text: '' },
-    // { text: '' },
-    // { text: '' },
-    // { text: '' },
-    // { text: '' },
-    // { text: '' },
-    { text: '', disabled:false},
-    { text: '', disabled:false},
-    { text: '', disabled:false},
-    { text: '', disabled:false},
-    { text: '', disabled:false},
-    { text: '', disabled:false},
-    { text: '', disabled:false},
-    { text: '', disabled:false},
-    { text: '', disabled:false},
 
+  //main array where we are applying functionality
+  turns: any[] = [
+    { text: '', disabled:false},
+    { text: '', disabled:false},
+    { text: '', disabled:false},
+    { text: '', disabled:false},
+    { text: '', disabled:false},
+    { text: '', disabled:false},
+    { text: '', disabled:false},
+    { text: '', disabled:false},
+    { text: '', disabled:false},
   ];
+
+  //pushing an element on click of any button
   resultant: any[] = [];
 
-  initialTurn = 0;
+  //variables that are bind in html side with *ngIf
   hideX: boolean = false;
   hideXturn: boolean = true;
   hideOturn: boolean = false;
   hideO: boolean = false;
-  firstPlayer: string = 'First Player';
-  secondPlayer: string = 'Second Player';
   hideDiv: boolean = false;
   inputDisabled: boolean = false;
   resetButton: boolean = false;
   hideTie: boolean = false;
 
+  //globally variables
+  initialTurn = 0;
+  firstPlayer: string = 'First Player';
+  secondPlayer: string = 'Second Player';
+  
   constructor() {}
 
   ngOnInit(): void {}
 
+  //main Function where applying functionality on every move
   setMove(index: any): void {
     this.initialTurn++;
     this.initialTurn <= 9;
@@ -54,12 +52,14 @@ export class TicTacToeComponent implements OnInit {
       this.resultant.splice(index, 0, 'X');
       this.hideXturn = false;
       this.hideOturn = true;
-    } else if (this.initialTurn % 2 == 0) {
+    } else 
+      if (this.initialTurn % 2 == 0) {
       this.turns[index].text = 'O';
+      this.turns[index].disabled=true;
       this.resultant.splice(index, 0, 'O');
       this.hideXturn = true;
       this.hideOturn = false;
-    }
+    }else 
     if (
       (this.turns[0].text == 'X' &&
         this.turns[1].text == 'X' &&
@@ -89,7 +89,11 @@ export class TicTacToeComponent implements OnInit {
       this.hideX = true;
       this.resetButton = true;
       this.hideOturn = false;
-    } else if (
+      this.turns.forEach(data=>{
+        data.disabled=true;
+      })    
+      } else 
+      if (
       (this.turns[0].text == 'O' &&
         this.turns[1].text == 'O' &&
         this.turns[2].text == 'O') ||
@@ -118,7 +122,10 @@ export class TicTacToeComponent implements OnInit {
       this.hideO = true;
       this.resetButton = true;
       this.hideXturn = false;
-    }
+      this.turns.forEach(data=>{
+        data.disabled=true;
+      })
+    }else
     if (
       this.resultant.length == this.turns.length &&
       this.hideO == false &&
@@ -131,30 +138,14 @@ export class TicTacToeComponent implements OnInit {
     }
   }
 
-  // disabledFinction(index:any){
-  //   if(this.turns[index].text==""){
-  //     return false;
-  //   }
-  //   return true;
-  // }
-
+  //Start game function on the click of start button in HTML
   startGame() {
     this.hideDiv = true;
     this.inputDisabled = true;
-    console.log(this.firstPlayer);
-    console.log(this.secondPlayer);
   }
 
+  //Restart Function where DOM will be refresh onclick
   restart() {
-    // this.hideDiv=false;
-    // this.inputDisabled=false;
-    // this.resetButton=false;
-    // this.hideX=false;
-    // this.hideO=false;
-    // this.initialTurn=0;
-    // this.turns.forEach(data=>{
-    //   data.text="";
-    // })
     window.location.reload();
   }
 }
