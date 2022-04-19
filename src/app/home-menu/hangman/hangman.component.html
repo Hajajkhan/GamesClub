@@ -42,7 +42,7 @@
             </div>
         </div>
         <div class="btn">
-            <div *ngIf="hideReset" class="innerBtn">
+            <div class="innerBtn"  *ngIf="hideReset">
                 <button
                     (click)="restart()"
                     tuiButton
@@ -52,7 +52,7 @@
                 >
                     Restart
                 </button>
-                <button
+                <button 
                     (click)="getHint()"
                     tuiButton
                     type="button"
@@ -64,8 +64,16 @@
             </div>
         </div>
         <div>
-            <h1 *ngIf="hideLost">You Lost, Try Again!!</h1>
-            <h1 *ngIf="trueAnswer">You Won!!</h1>
+            <div *ngIf="hideLost">
+                <h1>oopss!!! <br><br> You Lost, Try Again!!</h1>
+                <p>you have to find the given Word <b>"{{lowerCase}}"</b></p>
+            </div>
+            <div *ngIf="trueAnswer">
+                <h1>Congratulations!!! <br><br> You are winner !!! </h1>
+                <p>Your Resultant is</p> <br>
+                <p>word: <b>"{{lowerCase}}"</b></p><br><br>
+                <p>Definition: <b>{{hint}}</b></p>
+            </div>
         </div>
     </div>
 </div>

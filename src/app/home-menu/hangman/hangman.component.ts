@@ -32,6 +32,7 @@ export class HangmanComponent implements OnInit {
   //declaration of arrays
   array:any[]=[];
   guesses:any[]=[];
+  resultant:any[]=[];
 
   //declaration of variables
   word="";
@@ -109,6 +110,7 @@ export class HangmanComponent implements OnInit {
     this.array.forEach((res, index) => {
      if (data.toLowerCase() === res) {
       this.guesses[index].guess=data;
+      this.resultant.splice(index, 0, res)
     }
     });
     let checked = this.array.includes(data)
@@ -118,7 +120,11 @@ export class HangmanComponent implements OnInit {
       this.hideBody=false;
       this.hideLost=true;
       this.btnDisabled=true;
-      this.hideReset=true;
+    }else if(this.resultant.length==this.array.length){
+      this.trueAnswer=true;
+      this.hideBody=false;
+      this.btnDisabled=true;
+
     }
   }
   
